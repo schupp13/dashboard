@@ -62,11 +62,12 @@ p{
 }
 
 .bg1{
-    background: url('../img/pic1.jpg');
+    background: url('../img/pic2.jpg');
+    color: rgb(32, 32, 32);
 }
 .bg2{
-    background: url('../img/pic4.jpg');
-    color: #333;
+    background: url('../img/nature.jpg');
+    color: rgb(179, 174, 174);
 }
 
 
@@ -80,9 +81,82 @@ p{
 
 .source a{
     text-decoration: none;
-    color:#333;
+    color:rgb(129, 127, 127);
     
 }
+
+.news-div{
+    width:100%;
+    align-items: flex-end;
+    
+}
+
+
+.back, .read, .forward, .movie-back, .movie-forward, .movie-read{
+    font-size: 40px;
+    margin: 10px;
+}
+
+.back:hover, .read:hover, .forward:hover, .movie-back:hover, .movie-read:hover, .movie-forward:hover{
+    transform: scale(1.2);
+}
+
+
+.fa-sun{
+    font-size: 50px;
+   
+    margin-bottom: 20px;
+}
+
+
+
+.weather-icon{
+    width: 100px;
+}
+
+.movie-image{
+   width: 30%;
+}
+
+.movie-image:hover{
+    transform: scale(3);
+    transition: all .5s ease-in-out;
+    opacity: .7;
+}
+
+.movie-content{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(201, 198, 198);
+    
+}
+
+.movie-title{
+    color: rgb(201, 198, 198);
+}
+/* .movie-buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.movie-description{
+    width: 70%;
+    padding: 0;
+    margin: 0;
+}
+
+.movie-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 

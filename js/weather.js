@@ -7,6 +7,10 @@ let closeBtn = document.querySelector('.closeBtn');
 let modalTitle = document.querySelector('.modal-title');
 let modalBody = document.querySelector('.modal-body');
 let modalContent = document.querySelector('.modal-content');
+let weatherIcon = document.querySelector('.weather-icon');
+
+let sunriseDom = document.querySelector(".sunrise");
+let sunsetDom = document.querySelector(".sunset");
 
 
 weatherButton.addEventListener('click', openModal);
@@ -28,8 +32,38 @@ function clearWeatherModal (){
     modalBody.innerHTML = "";
 }
 
+var domReady = function(callback) {
+    document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+};
+
+domReady(function() {
+    fetch('http://api.openweathermap.org/data/2.5/weather?q=jacksonville&units=imperial&appid=' + WeatherKey)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        console.log(data.weather[0].description);
+        tempDes.innerHTML =  data.weather[0].description;
+        temp.innerHTML = data.main.temp + '&deg;';
+        weatherIcon.setAttribute('src', 'http://openweathermap.org/img/w/' + data.weather[0].icon + '.png' )
+
+        let riseHour = new Date(data.sys.sunrise * 1000).getHours();
+        let riseMinutes = new Date(data.sys.sunrise * 1000).getMinutes();
+        let setHour = new Date(data.sys.sunset * 1000).getHours();
+        let setMinutes = new Date(data.sys.sunset * 1000).getMinutes();
+
+        let sunrise = riseHour+ ":" +riseMinutes + "am";
+        let sunset = setHour -12+ ":" +setMinutes + "pm";
+
+        sunriseDom.innerHTML = sunrise + "<span>| sunrise</span>";
+        sunsetDom.innerHTML= sunset + "<span>| sunset</span>";
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+});
+
 function fetchForcast(){
-    fetch('http://api.openweathermap.org/data/2.5/forecast?q=jacksonville&units=imperial&cnt=16&appid=73137b409c19aba561df3236c436fe56')
+    fetch('http://api.openweathermap.org/data/2.5/forecast?q=jacksonville&units=imperial&cnt=16&appid=' + WeatherKey)
     .then(res => res.json())
     .then(data => {
         console.log(data)
@@ -58,20 +92,5 @@ function fetchForcast(){
     })
 }
 
-var domReady = function(callback) {
-    document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
-};
 
-domReady(function() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?q=jacksonville&units=imperial&appid=61875a0ab0effcb82a85170538ae0914')
-    .then(res => res.json())
-    .then(data => {
-        console.log(data.weather[0].description);
-        tempDes.innerHTML =  data.weather[0].description;
-        temp.innerHTML = data.main.temp + '&deg;';
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-});
 

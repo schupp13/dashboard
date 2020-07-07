@@ -10,48 +10,65 @@
     <link rel="stylesheet" href="./css/modal.css">
 <body>
     <div class="container">
-        <div class="bg1">
-          <h2>16 <span>| 24</span></h2>
-          <p>Goals Completed</p>
+        <div class="bg1 movie-container ">
+            <div class="movie-content">         
+               <h2>Trending Movies</h2> <h2 class="movie-title"></h2>
+
+          <div class="movie-right">
+          <p class="movie-description"></p>
+          <div class="movie-buttons">   
+            <i class="fas fa-chevron-circle-left movie-back"></i>
+            <i class="fas fa-ticket-alt movie-read"></i>
+            <i class="fas fa-chevron-circle-right movie-forward"></i>
+          </div>
         </div>
+    </div>
+        </div> 
         <div class="bg1">
-          <h2><i class="fas fa-battery-three-quarters"></i></h2>
-          <p>Respiration</p>
+          <h2 class="clock"></h2>
+          
         </div>
         <div class="bg2">
           <h2><i class="fas fa-running"></i></h2>
           <p>Miles</p>
         </div>
-        <div class="bg1 weather">
+        <div class="bg1">
           <h2 class="temp">36 </h2> 
-          <p class="temp-des">Temperature</p>
+          <!-- <p class="temp-des">Temperature</p> -->
           <small class="source"><a href="https://openweathermap.org/">openweathermap API</a></small>
-
         </div>
         <div class="bg1">
-          <h2><i class="fas fa-bed"></i></h2>
-          <p>Sleep Keep</p>
+            <h2 class="temp-des">Temperature</h2>
+            <img class="weather-icon" src="" alt="">
         </div>
         <div class="bg2 quote-button">
           <h2 class="quote"> </h2>
           <p class="quote-author"></p>
           <small class="source"><a href="https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373">FreeCodeCamp API</a></small>
         </div>
-        <div class="bg1">
-          <h2>170 <span>lbs</span></h2>
-          <p>Weight</p>
+        <div class="bg1 weather">
+          <h2>48 hr forcast</h2>
+          <p></p>
         </div>
         <div class="bg1">
-          <h2>28 <span>%</span></h2>
-          <p>Fat Percentage</p>
+            <i class="fas fa-sun"></i>
+            <h3 class="sunrise"><span>| sunrise</span></h3>       
+            <h3 class="sunset"><span>| </span></h3>
         </div>
-        <div class="bg2">
-          <h2>118 <span>mgdl</span></h2>
-          <p>Blood Glucose</p>
+        <div class="bg2 word-button">
+          <h2 class="word"> <span class="pronunciation"></span></h2>
+          <p class="definition"></p>
+          <small class="source"><a href="https://www.wordsapi.com/">Words API</a></small>
         </div>
-        <div class="bg2">
-          <h2>680 <span>kcal</span></h2>
-          <p>AVG Consumption</p>
+        <div class="bg2 news-button news-div">
+          <h2 class="news-title"> <span></span></h2>
+          <img class="news-image" src="data:image/png;base64,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"/>
+          <p class="news-body"></p>
+            <div class="news-buttons">
+                <i class="fas fa-chevron-circle-left back"></i>
+                <i class="fas fa-book-reader read"></i>
+                <i class="fas fa-chevron-circle-right forward"></i>
+            </div>
         </div>
         <div class="bg2">
           <h2><i class="fas fa-dumbbell"></i></h2>
@@ -62,17 +79,19 @@
           <p>Body Hydration</p>
         </div>
       </div>
-
       <div id="weatherModal" class="modal">
         <div class="modal-content">
             <span class="closeBtn">&times;</span>
             <h2 class="modal-title"></h3>
                 <div class="modal-body"></div>
         </div>
-    </div>
-    
+    </div> 
 </body>
+<script src="./js/apikeys.js"></script>
 <script src="./js/weather.js"></script>
 <script src="./js/quotes.js"></script>
 <script src="./js/word.js"></script>
+<script src="./js/news.js"></script>
+<script src="./js/movie.js"></script>
+<script src="./js/clock.js"></script>
 </html>

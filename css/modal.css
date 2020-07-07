@@ -63,9 +63,9 @@
 
 .rain{
     background-image: url('../img/rain.jpg');
-    color: black;
+    color: white;
 }
 
 .cloud{
-    background-image: url('../img/cloud.jpg');
+    background-image: url('../img/cloud2.jpg');
 }
